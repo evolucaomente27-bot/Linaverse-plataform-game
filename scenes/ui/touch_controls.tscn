@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://btouchcontrols001"]
+
+[ext_resource type="Script" path="res://scenes/ui/touch_controls.gd" id="1_touch_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_left.png" id="2_left"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_left_pressed.png" id="3_left_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_right.png" id="4_right"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_right_pressed.png" id="5_right_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_jump.png" id="6_jump"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_jump_pressed.png" id="7_jump_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_dash.png" id="8_dash"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_dash_pressed.png" id="9_dash_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_run.png" id="10_run"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_run_pressed.png" id="11_run_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_pause.png" id="12_pause"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_pause_pressed.png" id="13_pause_p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_settings.png" id="14_settings"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/touch_settings_pressed.png" id="15_settings_p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dir"]
+radius = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jump"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dash"]
+radius = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_run"]
+radius = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pause"]
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_settings"]
+radius = 34.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drag_outline"]
+bg_color = Color(0.1, 0.4, 0.8, 0.25)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85, 0.35, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="TouchControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_touch_script")
+
+[node name="LeftPad" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="DragBox" type="Panel" parent="LeftPad"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_drag_outline")
+
+[node name="DragLabel" type="Label" parent="LeftPad/DragBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = -4.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+text = "📐 Arraste Aqui"
+horizontal_alignment = 1
+
+[node name="BtnLeft" type="TouchScreenButton" parent="LeftPad"]
+position = Vector2(0, 16)
+texture_normal = ExtResource("2_left")
+texture_pressed = ExtResource("3_left_p")
+shape = SubResource("CircleShape2D_dir")
+shape_centered = true
+passby_press = true
+action = "move_left"
+visibility_mode = 0
+
+[node name="BtnRight" type="TouchScreenButton" parent="LeftPad"]
+position = Vector2(106, 16)
+texture_normal = ExtResource("4_right")
+texture_pressed = ExtResource("5_right_p")
+shape = SubResource("CircleShape2D_dir")
+shape_centered = true
+passby_press = true
+action = "move_right"
+visibility_mode = 0
+
+[node name="RightPad" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -170.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="DragBox" type="Panel" parent="RightPad"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_drag_outline")
+
+[node name="DragLabel" type="Label" parent="RightPad/DragBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = -4.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+text = "📐 Arraste Aqui"
+horizontal_alignment = 1
+
+[node name="BtnRun" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(0, 52)
+texture_normal = ExtResource("10_run")
+texture_pressed = ExtResource("11_run_p")
+shape = SubResource("CircleShape2D_run")
+shape_centered = true
+passby_press = true
+action = "run"
+visibility_mode = 0
+
+[node name="BtnDash" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(76, -22)
+texture_normal = ExtResource("8_dash")
+texture_pressed = ExtResource("9_dash_p")
+shape = SubResource("CircleShape2D_dash")
+shape_centered = true
+passby_press = true
+action = "dash"
+visibility_mode = 0
+
+[node name="BtnJump" type="TouchScreenButton" parent="RightPad"]
+position = Vector2(146, 42)
+texture_normal = ExtResource("6_jump")
+texture_pressed = ExtResource("7_jump_p")
+shape = SubResource("CircleShape2D_jump")
+shape_centered = true
+passby_press = true
+action = "jump"
+visibility_mode = 0
+
+[node name="TopPad" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 90.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="BtnSettings" type="TouchScreenButton" parent="TopPad"]
+position = Vector2(0, 0)
+texture_normal = ExtResource("14_settings")
+texture_pressed = ExtResource("15_settings_p")
+shape = SubResource("CircleShape2D_settings")
+shape_centered = true
+visibility_mode = 0
+
+[node name="BtnPause" type="TouchScreenButton" parent="TopPad"]
+position = Vector2(76, 0)
+texture_normal = ExtResource("12_pause")
+texture_pressed = ExtResource("13_pause_p")
+shape = SubResource("CircleShape2D_pause")
+shape_centered = true
+action = "pause"
+visibility_mode = 0

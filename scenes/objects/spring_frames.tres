@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/objects/spring_pad.png" id="1_uc556"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rud3v"]
+atlas = ExtResource("1_uc556")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r3ct"]
+atlas = ExtResource("1_uc556")
+region = Rect2(0, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rud3v")
+}],
+"loop": 0,
+"name": &"bounce",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r3ct")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.0
+}]

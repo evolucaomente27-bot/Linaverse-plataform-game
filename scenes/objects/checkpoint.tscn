@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bcheckpoint001"]
+
+[ext_resource type="Script" path="res://scenes/objects/checkpoint.gd" id="1_cp"]
+[ext_resource type="SpriteFrames" path="res://scenes/objects/checkpoint_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp"]
+size = Vector2(32, 56)
+
+[sub_resource type="Gradient" id="Gradient_cp"]
+colors = PackedColorArray(0.4, 0.9, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(220, 20)
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_cp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_frames")
+animation = &"unlit"
+autoplay = "unlit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cp")
+
+[node name="SparkleParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -6)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.8
+lifetime = 0.6
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 30)
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_cp")
+
+[node name="BasePlatform" type="StaticBody2D" parent="."]
+position = Vector2(0, 32)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasePlatform"]
+shape = SubResource("RectangleShape2D_platform")

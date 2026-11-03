@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/collectibles/ice_crystal.png" id="1_5wx7o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5we20"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va5if"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5r88"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afs4l"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iy47"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7uwl"]
+atlas = ExtResource("1_5wx7o")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5we20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va5if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5r88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afs4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iy47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7uwl")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 8.0
+}]

@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://bstorycutscene001"]
+
+[ext_resource type="Script" path="res://scenes/ui/story_cutscene.gd" id="1_cutscene"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/cutscene_1_friends.png" id="2_first_img"]
+
+[sub_resource type="Gradient" id="Gradient_snow"]
+colors = PackedColorArray(1, 1, 1, 0.7, 0.6, 0.8, 1, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_image_frame"]
+bg_color = Color(0.02, 0.04, 0.08, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.65, 0.95, 0.8)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.01, 0.02, 0.06, 0.8)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]
+bg_color = Color(0.05, 0.08, 0.16, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.75, 1, 0.85)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.01, 0.02, 0.05, 0.75)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.12, 0.16, 0.28, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.65, 0.9, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.2, 0.28, 0.48, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.85, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="StoryCutscene" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cutscene")
+
+[node name="BackgroundDark" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.05, 0.1, 1)
+
+[node name="SnowParticles" type="CPUParticles2D" parent="."]
+position = Vector2(640, -10)
+amount = 80
+lifetime = 6.0
+preprocess = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(660, 5)
+direction = Vector2(0.25, 1)
+spread = 25.0
+gravity = Vector2(15, 30)
+initial_velocity_min = 25.0
+initial_velocity_max = 60.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_snow")
+
+[node name="ImageContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(960, 460)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -335.0
+offset_right = 480.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImageFrame" type="PanelContainer" parent="ImageContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_image_frame")
+
+[node name="CutsceneImage" type="TextureRect" parent="ImageContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(476, 226)
+texture = ExtResource("2_first_img")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(960, 160)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -185.0
+offset_right = 480.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialog")
+
+[node name="Margin" type="MarginContainer" parent="DialogBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="DialogBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HeaderRow" type="HBoxContainer" parent="DialogBox/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerBadge" type="Label" parent="DialogBox/Margin/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ CAPÍTULO 1 • DIAS DE PAZ • ❄️ NARRADOR ]"
+
+[node name="Spacer" type="Control" parent="DialogBox/Margin/VBox/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlideCounter" type="Label" parent="DialogBox/Margin/VBox/HeaderRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.8)
+theme_override_font_sizes/font_size = 12
+text = "1 / 4"
+
+[node name="StoryText" type="RichTextLabel" parent="DialogBox/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.92, 0.96, 1, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "Nas encostas geladas do Linaverse, a jovem [b]Lina[/b] e seu fiel gatinho [b]Nix[/b] eram inseparáveis..."
+scroll_active = false
+
+
+[node name="BottomRow" type="HBoxContainer" parent="DialogBox/Margin/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="ContinuePrompt" type="Label" parent="DialogBox/Margin/VBox/BottomRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "Continuar [ESPAÇO / CLIQUE] ❯"
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 18.0
+offset_right = -30.0
+offset_bottom = 54.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="SkipBtn" type="Button" parent="TopBar"]
+custom_minimum_size = Vector2(170, 36)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.85)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_hover")
+text = "Pular Cutscene [ESC] ❯❯"
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.04, 0.08, 1)

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ccrumblingplatform01"]
+
+[ext_resource type="Script" path="res://scenes/objects/crumbling_platform.gd" id="1_crumb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crumb"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trig"]
+size = Vector2(116, 8)
+
+[sub_resource type="Gradient" id="Gradient_crumb"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(0.8, 0.95, 1, 0.9, 0.4, 0.75, 1, 0.6, 1, 1, 1, 0)
+
+[node name="CrumblingPlatform" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_crumb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_crumb")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="TriggerShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_trig")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 160)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+scale_amount_min = 2.0
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_crumb")

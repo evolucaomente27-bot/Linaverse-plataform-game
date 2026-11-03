@@ -1,0 +1,318 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/levels/parallax_background.tscn" id="1_bg"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ground_platform.tscn" id="2_ground"]
+[ext_resource type="Script" path="res://scenes/objects/ground_platform.gd" id="3_ground_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ice_platform.tscn" id="4_ice"]
+[ext_resource type="PackedScene" path="res://scenes/objects/moving_platform.tscn" id="5_moving"]
+[ext_resource type="Script" path="res://scenes/objects/moving_platform.gd" id="6_moving_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/spikes.tscn" id="7_spikes"]
+[ext_resource type="PackedScene" path="res://scenes/objects/crystal.tscn" id="8_crystal"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/enemy.tscn" id="9_enemy"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="10_enemy_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/checkpoint.tscn" id="11_cp"]
+[ext_resource type="PackedScene" path="res://scenes/objects/spring_mushroom.tscn" id="12_spring"]
+[ext_resource type="Script" path="res://scenes/objects/spring_mushroom.gd" id="13_spring_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/portal.tscn" id="14_portal"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="15_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="16_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="17_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over_menu.tscn" id="18_gameover"]
+[ext_resource type="PackedScene" path="res://scenes/ui/victory_menu.tscn" id="19_victory"]
+[ext_resource type="PackedScene" path="res://scenes/objects/powerup.tscn" id="20_powerup"]
+[ext_resource type="Script" path="res://scenes/objects/powerup.gd" id="21_powerup_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/boost_pad.tscn" id="22_boost"]
+[ext_resource type="Script" path="res://scenes/objects/boost_pad.gd" id="23_boost_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/wind_current.tscn" id="24_wind"]
+[ext_resource type="Script" path="res://scenes/objects/wind_current.gd" id="25_wind_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/crumbling_platform.tscn" id="26_crumble"]
+[ext_resource type="Script" path="res://scenes/objects/crumbling_platform.gd" id="27_crumble_script"]
+[ext_resource type="PackedScene" path="res://scenes/objects/breakable_wall.tscn" id="28_wall"]
+[ext_resource type="Script" path="res://scenes/objects/breakable_wall.gd" id="29_wall_script"]
+[ext_resource type="Script" path="res://scenes/levels/maid/level_1.gd" id="30_lvl_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_left"]
+size = Vector2(40, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_right"]
+size = Vector2(40, 800)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("30_lvl_script")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." instance=ExtResource("1_bg")]
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-20, 350)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall"]
+shape = SubResource("RectangleShape2D_wall_left")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(4319, 350)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
+shape = SubResource("RectangleShape2D_wall_right")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Ground_Start" type="StaticBody2D" parent="Platforms" instance=ExtResource("2_ground")]
+position = Vector2(200, 560)
+collision_mask = 0
+script = ExtResource("3_ground_script")
+platform_size = Vector2(460, 64)
+
+[node name="Moving_1" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(560, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(-120, 60)
+duration = 2.4
+
+[node name="Moving_2" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(859, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(160, 0)
+duration = 2.4
+
+[node name="Moving_3" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(1159, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(120, 0)
+duration = 2.4
+
+[node name="Ground_4" type="StaticBody2D" parent="Platforms" instance=ExtResource("2_ground")]
+position = Vector2(1538, 520)
+collision_mask = 0
+script = ExtResource("3_ground_script")
+platform_size = Vector2(360, 64)
+
+[node name="Moving_5" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(1818, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(160, 0)
+duration = 2.4
+
+[node name="Moving_6" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(2079, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(-120, -60)
+duration = 2.4
+
+[node name="Ground_7" type="StaticBody2D" parent="Platforms" instance=ExtResource("2_ground")]
+position = Vector2(2558, 520)
+collision_mask = 0
+script = ExtResource("3_ground_script")
+platform_size = Vector2(549, 64)
+
+[node name="Ground_8" type="StaticBody2D" parent="Platforms" instance=ExtResource("2_ground")]
+position = Vector2(3177, 520)
+collision_mask = 0
+script = ExtResource("3_ground_script")
+platform_size = Vector2(360, 64)
+
+[node name="Moving_9" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(3457, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(-120, 60)
+duration = 2.4
+
+[node name="Moving_10" type="AnimatableBody2D" parent="Platforms" instance=ExtResource("5_moving")]
+position = Vector2(3743, 520)
+collision_mask = 0
+script = ExtResource("6_moving_script")
+move_offset = Vector2(160, 0)
+duration = 2.4
+
+[node name="Ground_11" type="StaticBody2D" parent="Platforms" instance=ExtResource("2_ground")]
+position = Vector2(3999, 520)
+collision_mask = 0
+script = ExtResource("3_ground_script")
+platform_size = Vector2(480, 64)
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Crystal_1" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(250, 480)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_2" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(340, 470)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_3" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(560, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_4" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(859, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_5" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(1159, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_6" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(1338, 480)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_7" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(1448, 436)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_8" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(1628, 436)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_9" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(1818, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_10" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(2079, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_11" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(2558, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_12" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(2733, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_13" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(2977, 480)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_14" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(3087, 436)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_15" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(3267, 436)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_16" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(3457, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Crystal_17" type="Area2D" parent="Collectibles" instance=ExtResource("8_crystal")]
+position = Vector2(3743, 475)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="InteractiveObjects" type="Node2D" parent="."]
+
+[node name="Checkpoint_1" type="Area2D" parent="InteractiveObjects" instance=ExtResource("11_cp")]
+position = Vector2(1538, 456)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Checkpoint_2" type="Area2D" parent="InteractiveObjects" instance=ExtResource("11_cp")]
+position = Vector2(3177, 456)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Portal" type="Area2D" parent="InteractiveObjects" instance=ExtResource("14_portal")]
+position = Vector2(4119, 474)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("15_player")]
+position = Vector2(100, 460)
+collision_layer = 2
+floor_constant_speed = true
+floor_snap_length = 6.0
+
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("16_hud")]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." instance=ExtResource("17_pause")]
+process_mode = 3
+visible = false
+
+[node name="GameOverMenu" type="CanvasLayer" parent="." instance=ExtResource("18_gameover")]
+process_mode = 3
+visible = false
+
+[node name="VictoryMenu" type="CanvasLayer" parent="." instance=ExtResource("19_victory")]
+process_mode = 3
+visible = false
+
+[node name="Mechanics" type="Node2D" parent="."]
+
+[node name="PowerUp_1" type="Area2D" parent="Mechanics" instance=ExtResource("20_powerup")]
+position = Vector2(979, 460)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("21_powerup_script")
+powerup_type = "magnet"
+
+[node name="PowerUp_2" type="Area2D" parent="Mechanics" instance=ExtResource("20_powerup")]
+position = Vector2(1899, 460)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("21_powerup_script")
+powerup_type = "magnet"
+
+[node name="BoostPad_1" type="Area2D" parent="Mechanics" instance=ExtResource("22_boost")]
+position = Vector2(2384, 510)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("23_boost_script")
+boost_speed = 880.0
+boost_dir = 1.0
+
+[node name="WindCurrent_1" type="Area2D" parent="Mechanics" instance=ExtResource("24_wind")]
+position = Vector2(1800, 450)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_wind_script")
+current_size = Vector2(80, 220)
+wind_force = -850.0
+
+[node name="Crumble_1" type="StaticBody2D" parent="Mechanics" instance=ExtResource("26_crumble")]
+position = Vector2(2400, 450)
+collision_mask = 0
+script = ExtResource("27_crumble_script")
+platform_size = Vector2(110, 24)
+
+[node name="BreakableWall_1" type="StaticBody2D" parent="Mechanics" instance=ExtResource("28_wall")]
+position = Vector2(1278, 470)
+collision_mask = 0
+script = ExtResource("29_wall_script")
+wall_size = Vector2(36, 110)
+
+[node name="BreakableWall_2" type="StaticBody2D" parent="Mechanics" instance=ExtResource("28_wall")]
+position = Vector2(2917, 470)
+collision_mask = 0
+script = ExtResource("29_wall_script")
+wall_size = Vector2(36, 110)

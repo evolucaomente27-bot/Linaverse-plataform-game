@@ -1,0 +1,569 @@
+[gd_scene format=3 uid="uid://bvictory001"]
+
+[ext_resource type="Script" path="res://scenes/ui/victory_menu.gd" id="1_vic"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/lina_face_win.png" id="2_port_win"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/medicine_icon.png" id="3_med_icon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_happy.png" id="4_nix_happy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_icon_happy.png" id="5_nix_icon_happy"]
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.08, 0.18, 0.92)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats"]
+bg_color = Color(0.1, 0.16, 0.32, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.7, 0.95, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_win_btn"]
+bg_color = Color(0.2, 0.55, 0.8, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.9, 1, 0.95)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.16, 0.22, 0.38, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.65, 0.9, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_base"]
+bg_color = Color(0.08, 0.12, 0.24, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.35, 0.75, 1, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 10
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_icon_frame"]
+bg_color = Color(0.12, 0.18, 0.35, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.7, 0.95, 0.6)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_badge"]
+bg_color = Color(0.15, 0.25, 0.45, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.8, 1, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="VictoryMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_vic")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="StatsPanel" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -290.0
+offset_right = 260.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="AvatarFrame" type="PanelContainer" parent="Panel/StatsPanel"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats")
+
+[node name="Avatar" type="TextureRect" parent="Panel/StatsPanel/AvatarFrame"]
+layout_mode = 2
+texture = ExtResource("2_port_win")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.15, 0.35, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "FASE CONCLUÍDA!"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 0.9)
+theme_override_font_sizes/font_size = 15
+text = "Lina alcançou o Portal Místico do Inverno!"
+horizontal_alignment = 1
+
+[node name="RankVal" type="Label" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "RANK S ★★★"
+horizontal_alignment = 1
+
+[node name="StatsBox" type="PanelContainer" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats")
+
+[node name="Margin" type="MarginContainer" parent="Panel/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="Grid" type="GridContainer" parent="Panel/StatsPanel/StatsBox/Margin"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="CrystalsLabel" type="Label" parent="Panel/StatsPanel/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 16
+text = "Cristais Coletados:"
+
+[node name="CrystalsVal" type="Label" parent="Panel/StatsPanel/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "25 / 25"
+horizontal_alignment = 2
+
+[node name="TimeLabel" type="Label" parent="Panel/StatsPanel/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 16
+text = "Tempo Total:"
+
+[node name="TimeVal" type="Label" parent="Panel/StatsPanel/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "01:15"
+horizontal_alignment = 2
+
+[node name="CurrentPowersLabel" type="Label" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.85, 1, 0.8)
+theme_override_font_sizes/font_size = 13
+text = "Poderes Ativos: Nenhum"
+horizontal_alignment = 1
+
+[node name="NixRewardBox" type="PanelContainer" parent="Panel/StatsPanel"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats")
+
+[node name="Margin" type="MarginContainer" parent="Panel/StatsPanel/NixRewardBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="HBox" type="HBoxContainer" parent="Panel/StatsPanel/NixRewardBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="NixRewardIcon" type="TextureRect" parent="Panel/StatsPanel/NixRewardBox/Margin/HBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_med_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Panel/StatsPanel/NixRewardBox/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="RewardTitle" type="Label" parent="Panel/StatsPanel/NixRewardBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "🐾 REMÉDIO DO NIX • ESSÊNCIA COLETADA!"
+
+[node name="RewardDesc" type="Label" parent="Panel/StatsPanel/NixRewardBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "🧪 Frasco Cristalino da Pureza"
+
+[node name="NixStatus" type="Label" parent="Panel/StatsPanel/NixRewardBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 0.85)
+theme_override_font_sizes/font_size = 11
+text = "Nix está descansando... Febre diminuiu um pouco!"
+autowrap_mode = 2
+
+[node name="NextLevelBtn" type="Button" parent="Panel/StatsPanel"]
+custom_minimum_size = Vector2(0, 46)
+
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_win_btn")
+text = "▶ Escolher Carta de Poder (Fase 2)"
+
+[node name="PlayAgainBtn" type="Button" parent="Panel/StatsPanel"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Jogar Novamente"
+
+[node name="MainMenuBtn" type="Button" parent="Panel/StatsPanel"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Menu Principal"
+
+[node name="CardSelectPanel" type="Control" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/CardSelectPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -260.0
+offset_right = 460.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/CardSelectPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.15, 0.35, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 34
+text = "✦ ESCOLHA SUA CARTA DE PODER ✦"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Panel/CardSelectPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 0.9)
+theme_override_font_sizes/font_size = 16
+text = "Selecione 1 bênção celestial para acompanhar Lina na próxima fase"
+horizontal_alignment = 1
+
+[node name="CardsContainer" type="HBoxContainer" parent="Panel/CardSelectPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Card1" type="Button" parent="Panel/CardSelectPanel/VBox/CardsContainer"]
+custom_minimum_size = Vector2(270, 360)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
+
+[node name="Margin" type="MarginContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+mouse_filter = 2
+
+[node name="RarityLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ COMUM • MOBILIDADE ]"
+horizontal_alignment = 1
+
+[node name="IconFrame" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_icon_frame")
+
+[node name="IconLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox/IconFrame"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "👟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 19
+text = "Passos do Vento"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.85)
+theme_override_font_sizes/font_size = 14
+text = "+30% velocidade de corrida e arrancada veloz com passos leves."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BadgePanel" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_badge")
+
+[node name="BadgeLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox/BadgePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "+30% Velocidade"
+horizontal_alignment = 1
+
+[node name="SelectBtnLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card1/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 0.9)
+theme_override_font_sizes/font_size = 13
+text = "▶ Clique para Escolher"
+horizontal_alignment = 1
+
+[node name="Card2" type="Button" parent="Panel/CardSelectPanel/VBox/CardsContainer"]
+custom_minimum_size = Vector2(270, 360)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
+
+[node name="Margin" type="MarginContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+mouse_filter = 2
+
+[node name="RarityLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.45, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ RARA • SOBREVIVÊNCIA ]"
+horizontal_alignment = 1
+
+[node name="IconFrame" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_icon_frame")
+
+[node name="IconLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox/IconFrame"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "💖"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 19
+text = "Coração de Gelo"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.85)
+theme_override_font_sizes/font_size = 14
+text = "+1 Coração permanente de vida máxima e restaura toda a vida."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BadgePanel" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_badge")
+
+[node name="BadgeLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox/BadgePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "+1 Vida Máxima"
+horizontal_alignment = 1
+
+[node name="SelectBtnLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card2/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 0.9)
+theme_override_font_sizes/font_size = 13
+text = "▶ Clique para Escolher"
+horizontal_alignment = 1
+
+[node name="Card3" type="Button" parent="Panel/CardSelectPanel/VBox/CardsContainer"]
+custom_minimum_size = Vector2(270, 360)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card_base")
+
+[node name="Margin" type="MarginContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+mouse_filter = 2
+
+[node name="RarityLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.25, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ÉPICA • ACROBACIA ]"
+horizontal_alignment = 1
+
+[node name="IconFrame" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_icon_frame")
+
+[node name="IconLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox/IconFrame"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🪶"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 19
+text = "Pulo Triplo Astral"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 0.85)
+theme_override_font_sizes/font_size = 14
+text = "Concede um 3º salto no ar cercado por estrelas celestiais."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BadgePanel" type="PanelContainer" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_badge")
+
+[node name="BadgeLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox/BadgePanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "+1 Pulo no Ar"
+horizontal_alignment = 1
+
+[node name="SelectBtnLabel" type="Label" parent="Panel/CardSelectPanel/VBox/CardsContainer/Card3/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 0.9)
+theme_override_font_sizes/font_size = 13
+text = "▶ Clique para Escolher"
+horizontal_alignment = 1
+
+[node name="StatusBanner" type="Label" parent="Panel/CardSelectPanel/VBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "✦ PODER ATIVADO! INICIANDO PRÓXIMA FASE... ✦"
+horizontal_alignment = 1

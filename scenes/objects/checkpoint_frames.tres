@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/objects/checkpoint_lantern.png" id="1_l4275"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_875i4"]
+atlas = ExtResource("1_l4275")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtxu5"]
+atlas = ExtResource("1_l4275")
+region = Rect2(0, 0, 48, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_875i4")
+}],
+"loop": 1,
+"name": &"lit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtxu5")
+}],
+"loop": 1,
+"name": &"unlit",
+"speed": 1.0
+}]

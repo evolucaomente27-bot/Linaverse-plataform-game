@@ -1,0 +1,631 @@
+[gd_scene format=3 uid="uid://ctrlcfgmodal01"]
+
+[ext_resource type="Script" path="res://scenes/ui/controls_config_dialog.gd" id="1_cfg_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.06, 0.1, 0.18, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.85, 1, 0.95)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.01, 0.03, 0.08, 0.85)
+shadow_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_section"]
+bg_color = Color(0.09, 0.14, 0.25, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.6, 0.9, 0.45)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.14, 0.22, 0.38, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.45, 0.8, 1, 0.75)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.2, 0.32, 0.52, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_primary"]
+bg_color = Color(0.15, 0.48, 0.75, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.95, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.15, 0.6, 0.9, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_accent"]
+bg_color = Color(0.85, 0.55, 0.15, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9, 0.45, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_banner"]
+bg_color = Color(0.04, 0.08, 0.16, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85, 0.3, 0.95)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.7)
+shadow_size = 16
+
+[node name="ControlsConfigDialog" type="CanvasLayer"]
+process_mode = 3
+layer = 120
+script = ExtResource("1_cfg_script")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.04, 0.09, 0.78)
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModalCard" type="PanelContainer" parent="Overlay/CenterContainer"]
+custom_minimum_size = Vector2(760, 580)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "⚙️  CONFIGURAÇÃO DE CONTROLES"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 0.98, 0.85)
+theme_override_font_sizes/font_size = 12
+text = "Personalize os botões virtuais na tela para o seu estilo ou veja o mapeamento"
+horizontal_alignment = 1
+
+[node name="TabButtons" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="BtnTabTouch" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabButtons"]
+custom_minimum_size = Vector2(220, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "📱  Touchscreen (Celular)"
+
+[node name="BtnTabPC" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabButtons"]
+custom_minimum_size = Vector2(220, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "⌨️  Teclado & Gamepad"
+
+[node name="TabContainer" type="Control" parent="Overlay/CenterContainer/ModalCard/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TouchTab" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="ScaleSection" type="PanelContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "🔍 Tamanho dos Botões (Escala):"
+
+[node name="HBox" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnScale85" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "85% Pequeno"
+
+[node name="BtnScale100" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "100% Padrão"
+
+[node name="BtnScale120" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "120% Grande"
+
+[node name="BtnScale140" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/ScaleSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "140% Gigante"
+
+[node name="OpacitySection" type="PanelContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "👁️ Opacidade / Transparência em Tela:"
+
+[node name="HBox" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnOpac35" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "35% Suave"
+
+[node name="BtnOpac55" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "55% Médio"
+
+[node name="BtnOpac75" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "75% Padrão"
+
+[node name="BtnOpac100" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/OpacitySection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "100% Sólido"
+
+[node name="RunSection" type="PanelContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 13
+text = "⚡ Comportamento do Botão de Corrida (Sprint):"
+
+[node name="HBox" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnRunHold" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🏃 Segurar Botão"
+
+[node name="BtnRunToggle" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "⚡ 1 Toque Alterna"
+
+[node name="BtnRunAuto" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🚀 Sempre Correr (Auto)"
+
+[node name="RunDescLabel" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/RunSection/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 0.85)
+theme_override_font_sizes/font_size = 11
+text = "🏃 Modo Segurar: O personagem corre enquanto o botão estiver pressionado."
+
+[node name="LayoutSection" type="PanelContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxRow" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ColHand" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColHand"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "👋 Lado dos Botões:"
+
+[node name="HBox" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColHand"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="BtnHandRight" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColHand/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "👉 Destro"
+
+[node name="BtnHandLeft" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColHand/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "👈 Canhoto"
+
+[node name="ColMargin" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "📐 Distância da Borda:"
+
+[node name="HBox" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="BtnMargin12" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColMargin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "12px Perto"
+
+[node name="BtnMargin24" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColMargin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "24px Normal"
+
+[node name="BtnMargin48" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab/LayoutSection/Margin/HBoxRow/ColMargin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "48px Afastado"
+
+[node name="BtnDragMode" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/TouchTab"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_accent")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "📐  Ajustar Posições dos Botões Arrastando na Tela"
+
+[node name="PCTab" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelPC" type="PanelContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Margin" type="MarginContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LabelPC" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "🎮 MAPEAMENTO DE COMANDOS (TECLADO & JOYPAD)"
+
+[node name="Grid" type="GridContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="Row1Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ A / D ] ou [ ◀ / ▶ ]"
+
+[node name="Row1Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Movimentação Horizontal de Lina"
+
+[node name="Row2Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ESPAÇO ] ou [ W ] ou [ ▲ ]"
+
+[node name="Row2Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Pulo / Salto Aéreo Duplo e Triplo"
+
+[node name="Row3Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ SHIFT ] ou [ Botão Corrida ]"
+
+[node name="Row3Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Corrida Rápida (Acelera até 360 px/s)"
+
+[node name="Row4Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ J ] / [ C ] / [ X ]"
+
+[node name="Row4Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Hiper Dash Cósmico (750 px/s)"
+
+[node name="Row5Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ U ]"
+
+[node name="Row5Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Salto Dimensional (Muda o universo)"
+
+[node name="Row6Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ESC ] ou [ P ]"
+
+[node name="Row6Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Pausar / Menus & Metas de Speedrun"
+
+[node name="Row7Key" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ R ]"
+
+[node name="Row7Act" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reinício Instantâneo (Speedrun)"
+
+[node name="JoypadNote" type="Label" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/TabContainer/PCTab/PanelPC/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 11
+text = "🎮 Suporte Nativo a Controles Bluetooth/USB: D-Pad/Analógico = Mover | A = Pulo | B = Corrida | X = Dash | Start = Pausa"
+
+[node name="Footer" type="HBoxContainer" parent="Overlay/CenterContainer/ModalCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnReset" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/Footer"]
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "🔄  Restaurar Padrões"
+
+[node name="Spacer" type="Control" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnSave" type="Button" parent="Overlay/CenterContainer/ModalCard/Margin/VBox/Footer"]
+custom_minimum_size = Vector2(220, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_primary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "✓  Salvar & Concluir"
+
+[node name="DragBanner" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(620, 56)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = 20.0
+offset_right = 310.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_banner")
+
+[node name="Margin" type="MarginContainer" parent="DragBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="HBox" type="HBoxContainer" parent="DragBanner/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="HintLabel" type="Label" parent="DragBanner/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 13
+text = "📐 ARRASTE OS BOTÕES COM O DEDO ATÉ O LUGAR IDEAL"
+vertical_alignment = 1
+
+[node name="BtnFinishDrag" type="Button" parent="DragBanner/Margin/HBox"]
+custom_minimum_size = Vector2(160, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_primary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "✓  Concluir Ajuste"

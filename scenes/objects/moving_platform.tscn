@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bmovplat001"]
+
+[ext_resource type="Script" path="res://scenes/objects/moving_platform.gd" id="1_mov"]
+[ext_resource type="Texture2D" path="res://assets/sprites/objects/moving_platform.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat"]
+size = Vector2(124, 24)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+collision_layer = 1
+collision_mask = 0
+sync_to_physics = true
+script = ExtResource("1_mov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_plat")
+one_way_collision = true

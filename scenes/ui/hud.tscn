@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://bhud001scene"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/lina_portrait.png" id="2_port"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/heart_full.png" id="3_heart"]
+[ext_resource type="Texture2D" path="res://assets/sprites/collectibles/ice_crystal.png" id="4_cryst"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_icon_sick.png" id="5_nix_icon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/medicine_icon.png" id="6_med_icon"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch_controls.tscn" id="7_touch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_bg"]
+bg_color = Color(0.1, 0.15, 0.28, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.7, 0.95, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.02, 0.05, 0.12, 0.5)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_island_bg"]
+bg_color = Color(0.06, 0.1, 0.22, 0.86)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.65, 0.95, 0.45)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.01, 0.03, 0.08, 0.45)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keycap"]
+bg_color = Color(0.12, 0.18, 0.32, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.45, 0.75, 1, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nix_quest"]
+bg_color = Color(0.07, 0.11, 0.22, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8, 0.38, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.02, 0.04, 0.12, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cryst_icon"]
+atlas = ExtResource("4_cryst")
+region = Rect2(0, 0, 32, 32)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftIslandBg" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 410.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_island_bg")
+
+[node name="RightIslandBg" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -340.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 80.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_island_bg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="PlayerInfo" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="AvatarFrame" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/PlayerInfo"]
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_bg")
+
+[node name="Avatar" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/AvatarFrame"]
+layout_mode = 2
+texture = ExtResource("2_port")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/PlayerInfo"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="LevelBadge" type="Label" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.88, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.1, 0.25, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 13
+text = "FASE 1 • Planície Serena [❄️ Clássica]"
+vertical_alignment = 1
+
+[node name="Hearts" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 0
+
+[node name="Heart1" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/VBoxContainer/Hearts"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/VBoxContainer/Hearts"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PlayerInfo/VBoxContainer/Hearts"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Stats" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+theme_override_constants/separation = 18
+
+[node name="Crystals" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Stats/Crystals"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = SubResource("AtlasTexture_cryst_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/Stats/Crystals"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.96, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.1, 0.25, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "0 / 25"
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/Stats"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.1, 0.25, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "00:00.00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HintKeycap" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_keycap")
+
+[node name="HintMargin" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Stats/HintKeycap"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HintLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/Stats/HintKeycap/HintMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.88, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "⏸️ ESC"
+vertical_alignment = 1
+
+[node name="NixQuestBanner" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(390, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 14.0
+offset_right = 195.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nix_quest")
+
+[node name="Margin" type="MarginContainer" parent="Control/NixQuestBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="Control/NixQuestBanner/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="NixIcon" type="TextureRect" parent="Control/NixQuestBanner/Margin/HBox"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("5_nix_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Control/NixQuestBanner/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="QuestTitle" type="Label" parent="Control/NixQuestBanner/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_shadow_color = Color(0.05, 0.05, 0.15, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 11
+text = "🐾 REMÉDIO DO NIX [1/12]"
+
+[node name="IngredientLabel" type="Label" parent="Control/NixQuestBanner/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.05, 0.15, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 13
+text = "Frasco Cristalino da Pureza"
+clip_text = true
+
+[node name="MedIcon" type="TextureRect" parent="Control/NixQuestBanner/Margin/HBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_med_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PowerContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 86.0
+offset_right = 520.0
+offset_bottom = 126.0
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 0
+
+[node name="TouchControls" type="Control" parent="." instance=ExtResource("7_touch")]

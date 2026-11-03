@@ -1,0 +1,20 @@
+# Godot 4
+.godot/
+*.translation
+
+# Binaries & Executables
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build outputs
+build/
+bin/
+
+# Temporary / Clones
+temp_repo/
+temp_previews/
+.DS_Store
+Thumbs.db
+*.tmp

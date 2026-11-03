@@ -1,0 +1,1194 @@
+[gd_scene format=3 uid="uid://bmainmenu001"]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background/sky_aurora.png" id="2_sky"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background/mountains_far.png" id="3_mfar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background/mountains_mid.png" id="4_mmid"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background/trees_near.png" id="5_trees"]
+[ext_resource type="SpriteFrames" path="res://scenes/player/player_frames.tres" id="6_pframes"]
+[ext_resource type="SpriteFrames" path="res://scenes/objects/checkpoint_frames.tres" id="7_lant_frames"]
+[ext_resource type="SpriteFrames" path="res://scenes/objects/crystal_frames.tres" id="8_cryst_frames"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_sick.png" id="9_nix_sick"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/medicine_icon.png" id="10_med_icon"]
+
+[sub_resource type="Gradient" id="Gradient_snow"]
+colors = PackedColorArray(1, 1, 1, 0.85, 0.7, 0.85, 1, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ground"]
+bg_color = Color(0.07, 0.1, 0.18, 0.98)
+border_width_top = 8
+border_color = Color(0.88, 0.96, 1, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shadow"]
+bg_color = Color(0.02, 0.04, 0.08, 0.45)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Gradient" id="Gradient_lantern"]
+colors = PackedColorArray(0.4, 0.9, 1, 0.8, 0.2, 0.5, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.05, 0.08, 0.16, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.7, 0.95, 0.75)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.01, 0.03, 0.08, 0.7)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_play_btn"]
+bg_color = Color(0.18, 0.52, 0.85, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65, 0.92, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_play_btn_hover"]
+bg_color = Color(0.28, 0.66, 0.98, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9, 0.98, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_play_btn_focus"]
+bg_color = Color(0.25, 0.62, 0.95, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.12, 0.18, 0.3, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.55, 0.8, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.2, 0.32, 0.52, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.85, 1, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
+bg_color = Color(0.2, 0.32, 0.52, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.75, 0.92, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_universe_btn"]
+bg_color = Color(0.12, 0.16, 0.32, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.5, 1, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_universe_btn_hover"]
+bg_color = Color(0.22, 0.28, 0.55, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.7, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_story_btn"]
+bg_color = Color(0.18, 0.14, 0.28, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.75, 0.35, 0.85)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_story_btn_hover"]
+bg_color = Color(0.28, 0.22, 0.42, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.88, 0.5, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_universe_toast"]
+bg_color = Color(0.05, 0.08, 0.18, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.8, 1, 0.9)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.01, 0.03, 0.08, 0.7)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.06, 0.1, 0.18, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.8, 1, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.01, 0.03, 0.06, 0.85)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctrl_box"]
+bg_color = Color(0.09, 0.13, 0.24, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.65, 0.9, 0.5)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keycap_pill"]
+bg_color = Color(0.14, 0.2, 0.35, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.5, 0.8, 1, 0.85)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="BackgroundSky" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sky")
+expand_mode = 1
+
+[node name="MountainsFar" type="TextureRect" parent="."]
+modulate = Color(0.85, 0.9, 1, 0.65)
+custom_minimum_size = Vector2(1280, 360)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -420.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_mfar")
+expand_mode = 1
+
+[node name="MountainsMid" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 340)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_mmid")
+expand_mode = 1
+
+[node name="TreesNear" type="TextureRect" parent="."]
+modulate = Color(0.55, 0.65, 0.85, 0.75)
+custom_minimum_size = Vector2(1280, 260)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_trees")
+expand_mode = 1
+
+[node name="SnowParticles" type="CPUParticles2D" parent="."]
+position = Vector2(640, -20)
+amount = 140
+lifetime = 5.5
+preprocess = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(700, 10)
+direction = Vector2(0.3, 1)
+spread = 20.0
+gravity = Vector2(20, 35)
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_snow")
+
+[node name="SnowGround" type="Panel" parent="."]
+custom_minimum_size = Vector2(1280, 160)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -155.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ground")
+
+[node name="LinaContainer" type="Node2D" parent="."]
+
+[node name="Shadow" type="Panel" parent="LinaContainer"]
+offset_left = 226.0
+offset_top = 556.0
+offset_right = 274.0
+offset_bottom = 568.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_shadow")
+
+[node name="LinaCharacter" type="AnimatedSprite2D" parent="LinaContainer"]
+position = Vector2(250, 506)
+scale = Vector2(1.8, 1.8)
+sprite_frames = ExtResource("6_pframes")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Lantern" type="AnimatedSprite2D" parent="LinaContainer"]
+position = Vector2(350, 526)
+scale = Vector2(1.2, 1.2)
+sprite_frames = ExtResource("7_lant_frames")
+animation = &"lit"
+autoplay = "lit"
+
+[node name="LanternParticles" type="CPUParticles2D" parent="LinaContainer/Lantern"]
+position = Vector2(0, -6)
+amount = 12
+lifetime = 1.2
+direction = Vector2(0, -1)
+spread = 45.0
+gravity = Vector2(0, -15)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_lantern")
+
+[node name="DecoCrystal" type="AnimatedSprite2D" parent="LinaContainer"]
+position = Vector2(140, 500)
+scale = Vector2(1.4, 1.4)
+sprite_frames = ExtResource("8_cryst_frames")
+animation = &"spin"
+autoplay = "spin"
+
+[node name="TitleBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 70.0
+offset_right = 350.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+
+[node name="Badge" type="Label" parent="TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 0.9)
+theme_override_colors/font_shadow_color = Color(0.02, 0.05, 0.15, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "❄  EDIÇÃO DE INVERNO  ❄"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.98, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.04, 0.12, 0.32, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 68
+text = "LINAVERSE"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TitleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.9, 1, 0.95)
+theme_override_colors/font_shadow_color = Color(0.02, 0.08, 0.2, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "Uma Aventura no Reino Congelado"
+horizontal_alignment = 1
+
+[node name="SettingsTopBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(140, 38)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "⚙️  Controles"
+
+[node name="UniverseToast" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(560, 52)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 10.0
+offset_right = 280.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_universe_toast")
+
+[node name="Margin" type="MarginContainer" parent="UniverseToast"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="UniverseToast/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ToastIcon" type="Label" parent="UniverseToast/Margin/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "🌀"
+
+[node name="VBox" type="VBoxContainer" parent="UniverseToast/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="ToastTitle" type="Label" parent="UniverseToast/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "✦ SALTO DIMENSIONAL ATIVADO ✦"
+
+[node name="ToastDesc" type="Label" parent="UniverseToast/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Bem-vindo ao Universo Astral Celestial ⭐"
+
+[node name="ToastShiftBtn" type="Button" parent="UniverseToast/Margin/HBox"]
+visible = false
+custom_minimum_size = Vector2(86, 30)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "Mudar ❯"
+
+[node name="MenuCard" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -90.0
+offset_right = 430.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="MenuCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_play_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_play_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_play_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_play_btn_focus")
+text = "▶  Iniciar Aventura"
+
+[node name="QuitBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayBtn")
+focus_neighbor_bottom = NodePath("../PlayBtn")
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "🚪  Sair"
+
+[node name="PromptLabel" type="Label" parent="MenuCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "🎮 [↑ / ↓] Navegar • [ESPAÇO] Confirmar"
+horizontal_alignment = 1
+
+[node name="StoryBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "🐾  A História de Nix"
+
+[node name="ShiftUniverseBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "🌀  Mudar Universo: Exploradora"
+
+[node name="WardrobeBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "👗  Roupas da Lina"
+
+[node name="ControlsBtn" type="Button" parent="MenuCard/Margin/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "📜  Como Jogar & Power-ups"
+
+[node name="ControlsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -270.0
+offset_right = 390.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 18.0
+offset_right = -26.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="ControlsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.05, 0.15, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 22
+text = "❄  GUIA DE CONTROLES, POWER-UPS & MECÂNICAS  ❄"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="ControlsPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.92, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "Domine o momentum de Lina, conquiste Rank S e leve o remédio para o gatinho Nix!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ControlsPanel/VBox"]
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="ControlsPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="LeftCol" type="VBoxContainer" parent="ControlsPanel/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="MoveBox" type="PanelContainer" parent="ControlsPanel/VBox/Columns/LeftCol"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctrl_box")
+
+[node name="Margin" type="MarginContainer" parent="ControlsPanel/VBox/Columns/LeftCol/MoveBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/VBox/Columns/LeftCol/MoveBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="ControlsPanel/VBox/Columns/LeftCol/MoveBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "🎮 MOVIMENTAÇÃO BÁSICA"
+
+[node name="Row1" type="Label" parent="ControlsPanel/VBox/Columns/LeftCol/MoveBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "• [A / D] ou [← / →] : Andar & Aceleração
+• [SHIFT] : Corrida Supersônica (Momentum)
+• [ESPAÇO / W / ↑] : Pulo & Salto Duplo no Ar"
+
+[node name="SkillBox" type="PanelContainer" parent="ControlsPanel/VBox/Columns/LeftCol"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctrl_box")
+
+[node name="Margin" type="MarginContainer" parent="ControlsPanel/VBox/Columns/LeftCol/SkillBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/VBox/Columns/LeftCol/SkillBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="ControlsPanel/VBox/Columns/LeftCol/SkillBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "⚡ HABILIDADES & ATALHOS SPEEDRUN"
+
+[node name="Row2" type="Label" parent="ControlsPanel/VBox/Columns/LeftCol/SkillBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "• [J / C / X] : DASH MÁGICO (750px/s, quebra gelo)
+• [U] : Salto Dimensional (Muda universo na hora)
+• [R] : Reset Instantâneo (Recomeço Speedrun)
+• [ESC] : Pausa, Status e Metas de Tempo"
+
+[node name="RightCol" type="VBoxContainer" parent="ControlsPanel/VBox/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PowerBox" type="PanelContainer" parent="ControlsPanel/VBox/Columns/RightCol"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctrl_box")
+
+[node name="Margin" type="MarginContainer" parent="ControlsPanel/VBox/Columns/RightCol/PowerBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/VBox/Columns/RightCol/PowerBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="ControlsPanel/VBox/Columns/RightCol/PowerBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "🔮 POWER-UPS DE FASE"
+
+[node name="Row3" type="Label" parent="ControlsPanel/VBox/Columns/RightCol/PowerBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "• ⚡ Turbo: Sprint com rastro e aceleração máxima
+• 🧲 Ímã Astral: Atrai cristais através de paredes
+• ⏳ Ampulheta: CONGELA O TEMPO da Speedrun!
+• 🪽 Asas Celestiais: Saltos aéreos sem limite
+• 🛡️ Escudo de Aurora: Anula 1 dano mortal"
+
+[node name="MechBox" type="PanelContainer" parent="ControlsPanel/VBox/Columns/RightCol"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctrl_box")
+
+[node name="Margin" type="MarginContainer" parent="ControlsPanel/VBox/Columns/RightCol/MechBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/VBox/Columns/RightCol/MechBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="ControlsPanel/VBox/Columns/RightCol/MechBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "🚀 MECÂNICAS DO CENÁRIO"
+
+[node name="Row4" type="Label" parent="ControlsPanel/VBox/Columns/RightCol/MechBox/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "• ⏩ Boost Pads: Lançamento supersônico a 880px/s
+• 💨 Ventos Cósmicos: Correntes verticais aos céus
+• 🧊 Gelo Quebradiço: Plataformas que colapsam
+• 🧱 Paredes Secretas: Atalhos destruíveis com Dash!"
+
+[node name="CloseBtn" type="Button" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -54.0
+offset_right = 110.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_play_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_play_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_play_btn_focus")
+text = "Entendi, vamos correr! 🚀"
+
+[node name="WardrobePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -280.0
+offset_right = 440.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="VBox" type="VBoxContainer" parent="WardrobePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 20.0
+offset_right = -28.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="Label" parent="WardrobePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "👗  GUARDA-ROUPA DA LINA  👗"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="WardrobePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "Escolha um traje especial gerado pelo Nano Banana para acompanhar Lina"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WardrobePanel/VBox"]
+layout_mode = 2
+
+[node name="Content" type="HBoxContainer" parent="WardrobePanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="LeftCol" type="VBoxContainer" parent="WardrobePanel/VBox/Content"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PreviewFrame" type="PanelContainer" parent="WardrobePanel/VBox/Content/LeftCol"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="PreviewRect" type="TextureRect" parent="WardrobePanel/VBox/Content/LeftCol/PreviewFrame"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviewAnimContainer" type="Control" parent="WardrobePanel/VBox/Content/LeftCol/PreviewFrame"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PreviewSprite" type="AnimatedSprite2D" parent="WardrobePanel/VBox/Content/LeftCol/PreviewFrame/PreviewAnimContainer"]
+position = Vector2(100, 100)
+scale = Vector2(1.35, 1.35)
+sprite_frames = ExtResource("6_pframes")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="RarityBadge" type="Label" parent="WardrobePanel/VBox/Content/LeftCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ TRAJE ÉPICO ]"
+horizontal_alignment = 1
+
+[node name="ViewModeBtn" type="Button" parent="WardrobePanel/VBox/Content/LeftCol"]
+custom_minimum_size = Vector2(180, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../PreviewFrame")
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "🔄 Alternar p/ Sprite 2D"
+
+[node name="AnimToggleBtn" type="Button" parent="WardrobePanel/VBox/Content/LeftCol"]
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "🏃 Animação: Andando"
+
+[node name="RightCol" type="VBoxContainer" parent="WardrobePanel/VBox/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="OutfitTitle" type="Label" parent="WardrobePanel/VBox/Content/RightCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Maga Celestial"
+
+[node name="OutfitDesc" type="Label" parent="WardrobePanel/VBox/Content/RightCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Descrição do traje..."
+autowrap_mode = 2
+
+[node name="OutfitButtons" type="GridContainer" parent="WardrobePanel/VBox/Content/RightCol"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 4
+
+[node name="BtnClassic" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "❄️ Padrão"
+
+[node name="BtnCelestial" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "⭐ Maga"
+
+[node name="BtnValkyrie" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "⚔️ Valquíria"
+
+[node name="BtnNinja" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🥷 Ninja"
+
+[node name="BtnRoyalty" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "👑 Princesa"
+
+[node name="BtnUniform" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🎒 Uniforme"
+
+[node name="BtnAgnes" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🧪 Agnes"
+
+[node name="BtnFrieren" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🪄 Frieren"
+
+[node name="BtnMaid" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "☕ Maid"
+
+[node name="BtnMaomao" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🌿 Maomao"
+
+[node name="BtnMiku" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🎵 Miku"
+
+[node name="BtnSonserina" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🐍 Sonserina"
+
+[node name="BtnTracen" type="Button" parent="WardrobePanel/VBox/Content/RightCol/OutfitButtons"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "🏇 Tracen"
+
+[node name="EquipBtn" type="Button" parent="WardrobePanel/VBox/Content/RightCol"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_play_btn")
+text = "✨ Equipar este Traje"
+
+[node name="CloseWardrobeBtn" type="Button" parent="WardrobePanel/VBox"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Voltar ao Menu"
+
+[node name="StoryPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -285.0
+offset_right = 470.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="StoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="StoryPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HeaderBox" type="VBoxContainer" parent="StoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Header" type="Label" parent="StoryPanel/Margin/VBox/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.35, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.05, 0.15, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "🐾 MISSÃO: SALVAR O GATINHO NIX 🐾"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="StoryPanel/Margin/VBox/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.9, 1, 0.95)
+theme_override_font_sizes/font_size = 14
+text = "Uma corrida de Speedrun contra o tempo através dos 6 Universos do Linaverse"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="StoryPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="Content" type="HBoxContainer" parent="StoryPanel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 22
+
+[node name="LeftCol" type="VBoxContainer" parent="StoryPanel/Margin/VBox/Content"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="NixFrame" type="PanelContainer" parent="StoryPanel/Margin/VBox/Content/LeftCol"]
+custom_minimum_size = Vector2(340, 240)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_btn")
+
+[node name="NixImage" type="TextureRect" parent="StoryPanel/Margin/VBox/Content/LeftCol/NixFrame"]
+layout_mode = 2
+texture = ExtResource("9_nix_sick")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NixStatus" type="Label" parent="StoryPanel/Margin/VBox/Content/LeftCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "🌡️ Nix está com febre alta repousando em sua cestinha..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MedGoalBox" type="PanelContainer" parent="StoryPanel/Margin/VBox/Content/LeftCol"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="StoryPanel/Margin/VBox/Content/LeftCol/MedGoalBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="HBox" type="HBoxContainer" parent="StoryPanel/Margin/VBox/Content/LeftCol/MedGoalBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="MedIcon" type="TextureRect" parent="StoryPanel/Margin/VBox/Content/LeftCol/MedGoalBox/Margin/HBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("10_med_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MedLabel" type="Label" parent="StoryPanel/Margin/VBox/Content/LeftCol/MedGoalBox/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Objetivo: 12 Ingredientes Curativos
+para formular o Elixir Celestial"
+vertical_alignment = 1
+
+[node name="RightCol" type="VBoxContainer" parent="StoryPanel/Margin/VBox/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StoryTitle" type="Label" parent="StoryPanel/Margin/VBox/Content/RightCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "✨ Por que Lina precisa correr contra o tempo?"
+
+[node name="StoryText" type="RichTextLabel" parent="StoryPanel/Margin/VBox/Content/RightCol"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "O adorado gatinho da Lina, o doce [b]Nix[/b], adoeceu repentinamente com uma febre mágica rara e perigosa.
+
+Os sábios dimensionais revelaram que a única cura possível é o lendário [color=#ffd700][b]Elixir Celestial das 12 Essências[/b][/color].
+
+Cada uma das 12 fases do Linaverse esconde um ingrediente vital (o Frasco Cristalino, Sal Estelar, Flor de Neve, Orvalho Lunar, Seiva Glacial e mais).
+
+⚡ [color=#00e5ff][b]CADA SEGUNDO IMPORTA:[/b][/color] Lina precisa ser veloz! Corra em speedrun contra o relógio, use o [b]Dash [J/C][/b], acelere nos [b]Boost Pads[/b] e colete os Power-Ups para entregar o medicamento antes que a febre piore.
+
+Ao vencer a Fase 12, Nix tomará o remédio e estará curado, saudável e saltitante para sempre! 🐾💖"
+
+[node name="HSeparator2" type="HSeparator" parent="StoryPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="BottomHBox" type="HBoxContainer" parent="StoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StoryStartBtn" type="Button" parent="StoryPanel/Margin/VBox/BottomHBox"]
+custom_minimum_size = Vector2(280, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_play_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_play_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_play_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_play_btn_focus")
+text = "🚀  Correr para Salvar o Nix!"
+
+[node name="CloseStoryBtn" type="Button" parent="StoryPanel/Margin/VBox/BottomHBox"]
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_focus")
+text = "Voltar ao Menu"
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.04, 0.08, 1)
+

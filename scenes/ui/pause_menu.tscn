@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://bpause001menu"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_pause"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_icon_sick.png" id="2_nix_sick"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.07, 0.15, 0.85)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_card"]
+bg_color = Color(0.07, 0.11, 0.22, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.75, 1, 0.85)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.01, 0.02, 0.06, 0.75)
+shadow_size = 18
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nix_sub"]
+bg_color = Color(0.1, 0.15, 0.28, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8, 0.38, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_sub"]
+bg_color = Color(0.09, 0.13, 0.25, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.65, 0.9, 0.5)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_resume"]
+bg_color = Color(0.2, 0.55, 0.88, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.92, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_resume_hover"]
+bg_color = Color(0.28, 0.68, 0.98, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9, 0.98, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.12, 0.18, 0.32, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38, 0.62, 0.88, 0.75)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal_hover"]
+bg_color = Color(0.2, 0.3, 0.5, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.85, 1, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keycap_mini"]
+bg_color = Color(0.06, 0.09, 0.16, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.5, 0.7, 0.5)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_pause")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="ModalCard" type="PanelContainer" parent="Panel"]
+custom_minimum_size = Vector2(530, 540)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -270.0
+offset_right = 265.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_card")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ModalCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="HeaderBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.05, 0.15, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+text = "⏸️ JOGO PAUSADO"
+horizontal_alignment = 1
+
+[node name="StageLabel" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "FASE 1 • Planície Serena [❄️ Universo Clássico]"
+horizontal_alignment = 1
+
+[node name="NixBox" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nix_sub")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="NixIcon" type="TextureRect" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_nix_sick")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="NixTitle" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "🐾 MISSÃO DO NIX • [1/12] Frasco Cristalino da Pureza"
+
+[node name="NixDesc" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "Nix descansa sob a mantinha quentinha aguardando o remédio..."
+autowrap_mode = 2
+
+[node name="StatsBox" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats_sub")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Grid" type="GridContainer" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="TimeHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "⏱️ Tempo Atual:"
+
+[node name="TimeVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "00:00.00"
+horizontal_alignment = 2
+
+[node name="CrystHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "💎 Cristais Coletados:"
+
+[node name="CrystVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "0 / 25"
+horizontal_alignment = 2
+
+[node name="TargetHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "⚡ Alvo Speedrun Rank S:"
+
+[node name="TargetVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "< 25.0s"
+horizontal_alignment = 2
+
+[node name="PBHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "🏆 Seu Recorde Pessoal (PB):"
+
+[node name="PBVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.25, 1)
+theme_override_font_sizes/font_size = 13
+text = "--:--.--"
+horizontal_alignment = 2
+
+[node name="PowersBox" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats_sub")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/PowersBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="ActivePowersLabel" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/PowersBox/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.92, 1, 0.95)
+theme_override_font_sizes/font_size = 12
+text = "Poderes Ativos: Nenhum"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ControlsGuide" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_keycap_mini")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/ControlsGuide"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/ControlsGuide/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.78, 0.95, 0.85)
+theme_override_font_sizes/font_size = 11
+text = "[A/D] Andar  •  [SHIFT] Correr  •  [ESPAÇO] Pulo Duplo  •  [J/C] Dash  •  [U] Universo"
+horizontal_alignment = 1
+
+[node name="ButtonsBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ResumeBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_resume")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_resume_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_resume_hover")
+text = "▶  Continuar Jogo [ESC]"
+
+[node name="RestartBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_normal_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal_hover")
+text = "🔄  Reiniciar Nível [R]"
+
+[node name="ControlsBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_normal_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal_hover")
+text = "⚙️  Configurar Controles"
+
+[node name="MainMenuBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_normal_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal_hover")
+text = "🏠  Menu Principal"

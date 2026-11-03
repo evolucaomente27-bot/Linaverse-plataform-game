@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://bgameover001"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over_menu.gd" id="1_gover"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/lina_face_hurt.png" id="2_face_hurt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/story/nix_icon_sick.png" id="3_nix_icon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.12, 0.03, 0.06, 0.88)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal_card"]
+bg_color = Color(0.1, 0.05, 0.1, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.35, 0.48, 0.85)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.04, 0.01, 0.02, 0.8)
+shadow_size = 20
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_frame"]
+bg_color = Color(0.18, 0.08, 0.14, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.4, 0.5, 0.9)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nix_box"]
+bg_color = Color(0.15, 0.08, 0.14, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.65, 0.35, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_sub"]
+bg_color = Color(0.14, 0.08, 0.12, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.3, 0.4, 0.5)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_retry_btn"]
+bg_color = Color(0.75, 0.22, 0.32, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.55, 0.65, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.5, 0.1, 0.2, 0.5)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_retry_btn_hover"]
+bg_color = Color(0.88, 0.28, 0.4, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85, 0.9, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.8, 0.2, 0.3, 0.7)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menu_btn"]
+bg_color = Color(0.16, 0.18, 0.28, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.55, 0.8, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menu_btn_hover"]
+bg_color = Color(0.24, 0.28, 0.42, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.8, 1, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GameOverMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_gover")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="ModalCard" type="PanelContainer" parent="Panel"]
+custom_minimum_size = Vector2(500, 520)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -260.0
+offset_right = 250.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal_card")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ModalCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="HeaderBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="AvatarFrame" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_frame")
+
+[node name="Avatar" type="TextureRect" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox/AvatarFrame"]
+layout_mode = 2
+texture = ExtResource("2_face_hurt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.45, 1)
+theme_override_colors/font_shadow_color = Color(0.25, 0.05, 0.1, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+text = "❄️ A JORNADA CONGELOU..."
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 0.85, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Lina caiu no frio eterno... Mas o destino ainda chama!"
+horizontal_alignment = 1
+
+[node name="NixBox" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nix_box")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="NixIcon" type="TextureRect" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_nix_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="NixTitle" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "🐾 O PEQUENO NIX CONTA COM VOCÊ!"
+
+[node name="NixQuote" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/NixBox/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.9, 0.95)
+theme_override_font_sizes/font_size = 12
+text = "\"Miau... Lina, não desista de mim...\" Nix espera pelo remédio na caminha quentinha!"
+autowrap_mode = 2
+
+[node name="StatsBox" type="PanelContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stats_sub")
+
+[node name="Margin" type="MarginContainer" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Grid" type="GridContainer" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="StageHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.7, 0.75, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "📍 Fase Alcançada:"
+
+[node name="StageVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+text = "Fase 1 • Planície Serena"
+horizontal_alignment = 2
+
+[node name="TimeHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.7, 0.75, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "⏱️ Tempo na Tentativa:"
+
+[node name="TimeVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "00:00.00"
+horizontal_alignment = 2
+
+[node name="CrystHeader" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.7, 0.75, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "💎 Cristais Coletados:"
+
+[node name="CrystVal" type="Label" parent="Panel/ModalCard/Margin/VBoxContainer/StatsBox/Margin/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "0 / 25"
+horizontal_alignment = 2
+
+[node name="ButtonsBox" type="VBoxContainer" parent="Panel/ModalCard/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RetryBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_retry_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_retry_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_retry_btn_hover")
+text = "🔄  Tentar Novamente (R ou ESPAÇO)"
+
+[node name="MainMenuBtn" type="Button" parent="Panel/ModalCard/Margin/VBoxContainer/ButtonsBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 0.9)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_menu_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_menu_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_menu_btn_hover")
+text = "🏠  Menu Principal"

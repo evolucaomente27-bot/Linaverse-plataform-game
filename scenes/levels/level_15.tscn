@@ -1,0 +1,606 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/levels/parallax_background.tscn" id="1_gtte1"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ground_platform.tscn" id="2_0jv6w"]
+[ext_resource type="Script" path="res://scenes/levels/parallax_background.gd" id="2_o15ti"]
+[ext_resource type="Script" path="res://scenes/objects/ground_platform.gd" id="3_nhhqu"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ice_platform.tscn" id="4_xx3o0"]
+[ext_resource type="PackedScene" path="res://scenes/objects/moving_platform.tscn" id="5_takue"]
+[ext_resource type="Script" path="res://scenes/objects/moving_platform.gd" id="6_wojuo"]
+[ext_resource type="PackedScene" path="res://scenes/objects/spikes.tscn" id="7_6nrbv"]
+[ext_resource type="Script" path="res://scenes/objects/spikes.gd" id="8_kqp80"]
+[ext_resource type="PackedScene" path="res://scenes/objects/crystal.tscn" id="9_jlvvw"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/enemy.tscn" id="10_imdc4"]
+[ext_resource type="Script" path="res://scenes/objects/crystal.gd" id="11_6v5cy"]
+[ext_resource type="PackedScene" path="res://scenes/objects/checkpoint.tscn" id="11_mqob5"]
+[ext_resource type="PackedScene" path="res://scenes/objects/spring_mushroom.tscn" id="12_5ohmb"]
+[ext_resource type="PackedScene" path="res://scenes/objects/portal.tscn" id="13_4me2i"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="13_s3l5l"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="14_dlwq8"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="15_ey6k6"]
+[ext_resource type="Script" path="res://scenes/objects/checkpoint.gd" id="15_qe0q6"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="16_7e438"]
+[ext_resource type="Script" path="res://scenes/objects/spring_mushroom.gd" id="17_0l08y"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over_menu.tscn" id="17_gkf0j"]
+[ext_resource type="PackedScene" path="res://scenes/ui/victory_menu.tscn" id="18_ldsip"]
+[ext_resource type="Script" path="res://scenes/objects/portal.gd" id="19_3e4ad"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="21_o7f03"]
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="23_k1i0b"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="25_k4b0d"]
+[ext_resource type="Script" path="res://scenes/ui/game_over_menu.gd" id="27_h7qle"]
+[ext_resource type="Script" path="res://scenes/ui/victory_menu.gd" id="29_2j2n4"]
+[ext_resource type="PackedScene" path="res://scenes/objects/powerup.tscn" id="30_oyrp8"]
+[ext_resource type="Script" path="res://scenes/objects/powerup.gd" id="31_6hdb3"]
+[ext_resource type="PackedScene" path="res://scenes/objects/boost_pad.tscn" id="32_ftc34"]
+[ext_resource type="Script" path="res://scenes/objects/boost_pad.gd" id="33_6n738"]
+[ext_resource type="PackedScene" path="res://scenes/objects/wind_current.tscn" id="34_r0g7r"]
+[ext_resource type="Script" path="res://scenes/objects/wind_current.gd" id="35_j3dnv"]
+[ext_resource type="PackedScene" path="res://scenes/objects/crumbling_platform.tscn" id="36_3bywt"]
+[ext_resource type="Script" path="res://scenes/objects/crumbling_platform.gd" id="37_mc5s8"]
+[ext_resource type="PackedScene" path="res://scenes/objects/breakable_wall.tscn" id="38_amwhs"]
+[ext_resource type="Script" path="res://scenes/objects/breakable_wall.gd" id="39_n2bhx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb01p"]
+size = Vector2(40, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hoeg"]
+size = Vector2(40, 700)
+
+[node name="Level15" type="Node2D" unique_id=1994709653]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=702165537 instance=ExtResource("1_gtte1")]
+script = ExtResource("2_o15ti")
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=1103933542]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=952334951]
+position = Vector2(-20, 350)
+collision_mask = 0
+
+[node name="@CollisionShape2D@20" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=817713707]
+shape = SubResource("RectangleShape2D_vb01p")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=667578383]
+position = Vector2(5280, 200)
+collision_mask = 0
+
+[node name="@CollisionShape2D@21" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=213021689]
+shape = SubResource("RectangleShape2D_2hoeg")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=358116129]
+
+[node name="Ground_1" type="StaticBody2D" parent="Platforms" unique_id=748126765 instance=ExtResource("2_0jv6w")]
+position = Vector2(200, 560)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(420, 64)
+
+[node name="Ground_2" type="StaticBody2D" parent="Platforms" unique_id=1404659166 instance=ExtResource("2_0jv6w")]
+position = Vector2(1100, 530)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(240, 64)
+
+[node name="Ground_3" type="StaticBody2D" parent="Platforms" unique_id=2004202192 instance=ExtResource("2_0jv6w")]
+position = Vector2(1900, 420)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(320, 64)
+
+[node name="Ground_4" type="StaticBody2D" parent="Platforms" unique_id=884007491 instance=ExtResource("2_0jv6w")]
+position = Vector2(2700, 380)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(260, 64)
+
+[node name="Ground_5" type="StaticBody2D" parent="Platforms" unique_id=570847114 instance=ExtResource("2_0jv6w")]
+position = Vector2(3600, 340)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(320, 64)
+
+[node name="Ground_6" type="StaticBody2D" parent="Platforms" unique_id=370180661 instance=ExtResource("2_0jv6w")]
+position = Vector2(4400, 290)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(260, 64)
+
+[node name="Ground_7" type="StaticBody2D" parent="Platforms" unique_id=99658406 instance=ExtResource("2_0jv6w")]
+position = Vector2(5050, 140)
+collision_mask = 0
+script = ExtResource("3_nhhqu")
+platform_size = Vector2(480, 64)
+
+[node name="Ice_Step1" type="StaticBody2D" parent="Platforms" unique_id=1026854048 instance=ExtResource("4_xx3o0")]
+position = Vector2(480, 500)
+collision_mask = 0
+
+[node name="Ice_Step2" type="StaticBody2D" parent="Platforms" unique_id=1910126304 instance=ExtResource("4_xx3o0")]
+position = Vector2(660, 440)
+collision_mask = 0
+
+[node name="Ice_Step3" type="StaticBody2D" parent="Platforms" unique_id=1046863689 instance=ExtResource("4_xx3o0")]
+position = Vector2(840, 380)
+collision_mask = 0
+
+[node name="Ice_Step4" type="StaticBody2D" parent="Platforms" unique_id=1315439526 instance=ExtResource("4_xx3o0")]
+position = Vector2(1450, 270)
+collision_mask = 0
+
+[node name="Ice_Step5" type="StaticBody2D" parent="Platforms" unique_id=986914503 instance=ExtResource("4_xx3o0")]
+position = Vector2(1650, 220)
+collision_mask = 0
+
+[node name="Ice_Step6" type="StaticBody2D" parent="Platforms" unique_id=1210801113 instance=ExtResource("4_xx3o0")]
+position = Vector2(2150, 330)
+collision_mask = 0
+
+[node name="Ice_Step7" type="StaticBody2D" parent="Platforms" unique_id=564124996 instance=ExtResource("4_xx3o0")]
+position = Vector2(3000, 290)
+collision_mask = 0
+
+[node name="Ice_Step8" type="StaticBody2D" parent="Platforms" unique_id=1538797251 instance=ExtResource("4_xx3o0")]
+position = Vector2(3200, 230)
+collision_mask = 0
+
+[node name="Ice_Step9" type="StaticBody2D" parent="Platforms" unique_id=648094522 instance=ExtResource("4_xx3o0")]
+position = Vector2(3850, 240)
+collision_mask = 0
+
+[node name="Ice_Step10" type="StaticBody2D" parent="Platforms" unique_id=797258095 instance=ExtResource("4_xx3o0")]
+position = Vector2(4050, 180)
+collision_mask = 0
+
+[node name="Ice_Step11" type="StaticBody2D" parent="Platforms" unique_id=1161943623 instance=ExtResource("4_xx3o0")]
+position = Vector2(4250, 130)
+collision_mask = 0
+
+[node name="Ice_Step12" type="StaticBody2D" parent="Platforms" unique_id=804831747 instance=ExtResource("4_xx3o0")]
+position = Vector2(4650, 110)
+collision_mask = 0
+
+[node name="Ice_Step13" type="StaticBody2D" parent="Platforms" unique_id=347351702 instance=ExtResource("4_xx3o0")]
+position = Vector2(4850, 70)
+collision_mask = 0
+
+[node name="MovingPlatform_1" type="AnimatableBody2D" parent="Platforms" unique_id=807691945 instance=ExtResource("5_takue")]
+position = Vector2(1300, 360)
+collision_mask = 0
+script = ExtResource("6_wojuo")
+move_offset = Vector2(130, 0)
+duration = 1.9
+
+[node name="MovingPlatform_2" type="AnimatableBody2D" parent="Platforms" unique_id=1039891160 instance=ExtResource("5_takue")]
+position = Vector2(2480, 290)
+collision_mask = 0
+script = ExtResource("6_wojuo")
+move_offset = Vector2(0, -100)
+duration = 2.2
+
+[node name="MovingPlatform_3" type="AnimatableBody2D" parent="Platforms" unique_id=1905413926 instance=ExtResource("5_takue")]
+position = Vector2(3300, 250)
+collision_mask = 0
+script = ExtResource("6_wojuo")
+move_offset = Vector2(140, 0)
+duration = 1.8
+
+[node name="MovingPlatform_4" type="AnimatableBody2D" parent="Platforms" unique_id=2118104765 instance=ExtResource("5_takue")]
+position = Vector2(4550, 160)
+collision_mask = 0
+script = ExtResource("6_wojuo")
+move_offset = Vector2(0, -90)
+duration = 2.0
+
+[node name="Hazards" type="Node2D" parent="." unique_id=455414202]
+
+[node name="Spikes_1" type="Area2D" parent="Hazards" unique_id=1109132259 instance=ExtResource("7_6nrbv")]
+position = Vector2(600, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Spikes_2" type="Area2D" parent="Hazards" unique_id=1107612974 instance=ExtResource("7_6nrbv")]
+position = Vector2(1350, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Spikes_3" type="Area2D" parent="Hazards" unique_id=773662033 instance=ExtResource("7_6nrbv")]
+position = Vector2(2100, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Spikes_4" type="Area2D" parent="Hazards" unique_id=507607991 instance=ExtResource("7_6nrbv")]
+position = Vector2(2900, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Spikes_5" type="Area2D" parent="Hazards" unique_id=1491988474 instance=ExtResource("7_6nrbv")]
+position = Vector2(3800, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Spikes_6" type="Area2D" parent="Hazards" unique_id=317721773 instance=ExtResource("7_6nrbv")]
+position = Vector2(4550, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_kqp80")
+
+[node name="Collectibles" type="Node2D" parent="." unique_id=1732769692]
+
+[node name="Crystal_Ice1" type="Area2D" parent="Collectibles" unique_id=1640252826 instance=ExtResource("9_jlvvw")]
+position = Vector2(480, 440)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice2" type="Area2D" parent="Collectibles" unique_id=1868903032 instance=ExtResource("9_jlvvw")]
+position = Vector2(660, 380)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice3" type="Area2D" parent="Collectibles" unique_id=1344434009 instance=ExtResource("9_jlvvw")]
+position = Vector2(840, 320)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice4" type="Area2D" parent="Collectibles" unique_id=969436180 instance=ExtResource("9_jlvvw")]
+position = Vector2(1450, 210)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice5" type="Area2D" parent="Collectibles" unique_id=1338758471 instance=ExtResource("9_jlvvw")]
+position = Vector2(1650, 160)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice6" type="Area2D" parent="Collectibles" unique_id=1218792700 instance=ExtResource("9_jlvvw")]
+position = Vector2(2150, 270)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice7" type="Area2D" parent="Collectibles" unique_id=2081617738 instance=ExtResource("9_jlvvw")]
+position = Vector2(3000, 230)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice8" type="Area2D" parent="Collectibles" unique_id=874612279 instance=ExtResource("9_jlvvw")]
+position = Vector2(3200, 170)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice9" type="Area2D" parent="Collectibles" unique_id=949425081 instance=ExtResource("9_jlvvw")]
+position = Vector2(3850, 180)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice10" type="Area2D" parent="Collectibles" unique_id=695912269 instance=ExtResource("9_jlvvw")]
+position = Vector2(4050, 120)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice11" type="Area2D" parent="Collectibles" unique_id=553044173 instance=ExtResource("9_jlvvw")]
+position = Vector2(4250, 70)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice12" type="Area2D" parent="Collectibles" unique_id=1046016599 instance=ExtResource("9_jlvvw")]
+position = Vector2(4650, 50)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Ice13" type="Area2D" parent="Collectibles" unique_id=1253002545 instance=ExtResource("9_jlvvw")]
+position = Vector2(4850, 10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Mov1" type="Area2D" parent="Collectibles" unique_id=2021329878 instance=ExtResource("9_jlvvw")]
+position = Vector2(1300, 295)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Mov2" type="Area2D" parent="Collectibles" unique_id=632383889 instance=ExtResource("9_jlvvw")]
+position = Vector2(2480, 225)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Mov3" type="Area2D" parent="Collectibles" unique_id=1654865800 instance=ExtResource("9_jlvvw")]
+position = Vector2(3300, 185)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Mov4" type="Area2D" parent="Collectibles" unique_id=809341747 instance=ExtResource("9_jlvvw")]
+position = Vector2(4550, 95)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc1_0" type="Area2D" parent="Collectibles" unique_id=2080164084 instance=ExtResource("9_jlvvw")]
+position = Vector2(1175, 340)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc1_1" type="Area2D" parent="Collectibles" unique_id=1082638428 instance=ExtResource("9_jlvvw")]
+position = Vector2(1250, 305)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc1_2" type="Area2D" parent="Collectibles" unique_id=1690127743 instance=ExtResource("9_jlvvw")]
+position = Vector2(1325, 270)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc2_0" type="Area2D" parent="Collectibles" unique_id=1286154451 instance=ExtResource("9_jlvvw")]
+position = Vector2(2375, 260)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc2_1" type="Area2D" parent="Collectibles" unique_id=1033762280 instance=ExtResource("9_jlvvw")]
+position = Vector2(2450, 225)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc2_2" type="Area2D" parent="Collectibles" unique_id=1833799536 instance=ExtResource("9_jlvvw")]
+position = Vector2(2525, 190)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc3_0" type="Area2D" parent="Collectibles" unique_id=541891737 instance=ExtResource("9_jlvvw")]
+position = Vector2(3475, 220)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc3_1" type="Area2D" parent="Collectibles" unique_id=398242831 instance=ExtResource("9_jlvvw")]
+position = Vector2(3550, 185)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc3_2" type="Area2D" parent="Collectibles" unique_id=1532151544 instance=ExtResource("9_jlvvw")]
+position = Vector2(3625, 150)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc4_0" type="Area2D" parent="Collectibles" unique_id=1083097846 instance=ExtResource("9_jlvvw")]
+position = Vector2(4475, 100)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc4_1" type="Area2D" parent="Collectibles" unique_id=160961223 instance=ExtResource("9_jlvvw")]
+position = Vector2(4550, 65)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Arc4_2" type="Area2D" parent="Collectibles" unique_id=935318936 instance=ExtResource("9_jlvvw")]
+position = Vector2(4625, 30)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Crown_0" type="Area2D" parent="Collectibles" unique_id=661150530 instance=ExtResource("9_jlvvw")]
+position = Vector2(4990, -25)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Crown_1" type="Area2D" parent="Collectibles" unique_id=1921974497 instance=ExtResource("9_jlvvw")]
+position = Vector2(5050, -25)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Crown_2" type="Area2D" parent="Collectibles" unique_id=452402396 instance=ExtResource("9_jlvvw")]
+position = Vector2(5110, -25)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Spawn_0" type="Area2D" parent="Collectibles" unique_id=1898403122 instance=ExtResource("9_jlvvw")]
+position = Vector2(180, 480)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Spawn_1" type="Area2D" parent="Collectibles" unique_id=2026407259 instance=ExtResource("9_jlvvw")]
+position = Vector2(260, 460)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Crystal_Spawn_2" type="Area2D" parent="Collectibles" unique_id=1256721623 instance=ExtResource("9_jlvvw")]
+position = Vector2(340, 440)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_6v5cy")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=460580172]
+
+[node name="Enemy_1" type="CharacterBody2D" parent="Enemies" unique_id=1445284890 instance=ExtResource("10_imdc4")]
+position = Vector2(1900, 380)
+collision_layer = 8
+script = ExtResource("13_s3l5l")
+
+[node name="Enemy_2" type="CharacterBody2D" parent="Enemies" unique_id=21744490 instance=ExtResource("10_imdc4")]
+position = Vector2(3600, 300)
+collision_layer = 8
+script = ExtResource("13_s3l5l")
+
+[node name="InteractiveObjects" type="Node2D" parent="." unique_id=129601697]
+
+[node name="Checkpoint_1" type="Area2D" parent="InteractiveObjects" unique_id=632858340 instance=ExtResource("11_mqob5")]
+position = Vector2(1900, 356)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("15_qe0q6")
+
+[node name="Checkpoint_2" type="Area2D" parent="InteractiveObjects" unique_id=653491325 instance=ExtResource("11_mqob5")]
+position = Vector2(3600, 276)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("15_qe0q6")
+
+[node name="SpringMushroom_1" type="Area2D" parent="InteractiveObjects" unique_id=1529403853 instance=ExtResource("12_5ohmb")]
+position = Vector2(1100, 460)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_0l08y")
+
+[node name="SpringMushroom_2" type="Area2D" parent="InteractiveObjects" unique_id=651383754 instance=ExtResource("12_5ohmb")]
+position = Vector2(2300, 380)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_0l08y")
+
+[node name="SpringMushroom_3" type="Area2D" parent="InteractiveObjects" unique_id=240663180 instance=ExtResource("12_5ohmb")]
+position = Vector2(3400, 340)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_0l08y")
+
+[node name="SpringMushroom_4" type="Area2D" parent="InteractiveObjects" unique_id=117305942 instance=ExtResource("12_5ohmb")]
+position = Vector2(4400, 220)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_0l08y")
+
+[node name="Portal" type="Area2D" parent="InteractiveObjects" unique_id=1408439369 instance=ExtResource("13_4me2i")]
+position = Vector2(5050, 60)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("19_3e4ad")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=717106433 groups=["player"] instance=ExtResource("14_dlwq8")]
+position = Vector2(100, 460)
+collision_layer = 2
+floor_constant_speed = true
+floor_snap_length = 6.0
+script = ExtResource("21_o7f03")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1413972878 instance=ExtResource("15_ey6k6")]
+script = ExtResource("23_k1i0b")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1500739499 instance=ExtResource("16_7e438")]
+process_mode = 3
+visible = false
+script = ExtResource("25_k4b0d")
+
+[node name="GameOverMenu" type="CanvasLayer" parent="." unique_id=1641470788 instance=ExtResource("17_gkf0j")]
+process_mode = 3
+visible = false
+script = ExtResource("27_h7qle")
+
+[node name="VictoryMenu" type="CanvasLayer" parent="." unique_id=1969478002 instance=ExtResource("18_ldsip")]
+process_mode = 3
+visible = false
+script = ExtResource("29_2j2n4")
+
+[node name="Mechanics" type="Node2D" parent="." unique_id=1846985819]
+
+[node name="PowerUp" type="Area2D" parent="Mechanics" unique_id=519749110 instance=ExtResource("30_oyrp8")]
+position = Vector2(750, 360)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_6hdb3")
+powerup_type = "wings"
+
+[node name="@Area2D@60" type="Area2D" parent="Mechanics" unique_id=498271753 instance=ExtResource("30_oyrp8")]
+position = Vector2(1600, 280)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_6hdb3")
+
+[node name="@Area2D@61" type="Area2D" parent="Mechanics" unique_id=676735673 instance=ExtResource("30_oyrp8")]
+position = Vector2(2500, 260)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_6hdb3")
+powerup_type = "shield"
+
+[node name="@Area2D@62" type="Area2D" parent="Mechanics" unique_id=1731756263 instance=ExtResource("30_oyrp8")]
+position = Vector2(3400, 220)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_6hdb3")
+powerup_type = "magnet"
+
+[node name="@Area2D@63" type="Area2D" parent="Mechanics" unique_id=19322841 instance=ExtResource("30_oyrp8")]
+position = Vector2(4200, 160)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_6hdb3")
+powerup_type = "chrono"
+
+[node name="BoostPad" type="Area2D" parent="Mechanics" unique_id=1938630464 instance=ExtResource("32_ftc34")]
+position = Vector2(1100, 480)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("33_6n738")
+
+[node name="@Area2D@64" type="Area2D" parent="Mechanics" unique_id=842626881 instance=ExtResource("32_ftc34")]
+position = Vector2(3100, 420)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("33_6n738")
+
+[node name="WindCurrent" type="Area2D" parent="Mechanics" unique_id=1620299830 instance=ExtResource("34_r0g7r")]
+position = Vector2(1900, 520)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("35_j3dnv")
+updraft_force = -560.0
+
+[node name="@Area2D@65" type="Area2D" parent="Mechanics" unique_id=95328316 instance=ExtResource("34_r0g7r")]
+position = Vector2(3750, 480)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("35_j3dnv")
+updraft_force = -540.0
+current_size = Vector2(80, 250)
+
+[node name="CrumblingPlatform" type="StaticBody2D" parent="Mechanics" unique_id=1769995772 instance=ExtResource("36_3bywt")]
+position = Vector2(2300, 370)
+collision_mask = 0
+script = ExtResource("37_mc5s8")
+
+[node name="@StaticBody2D@66" type="StaticBody2D" parent="Mechanics" unique_id=765730466 instance=ExtResource("36_3bywt")]
+position = Vector2(2850, 340)
+collision_mask = 0
+script = ExtResource("37_mc5s8")
+
+[node name="@StaticBody2D@67" type="StaticBody2D" parent="Mechanics" unique_id=1273718602 instance=ExtResource("36_3bywt")]
+position = Vector2(3900, 280)
+collision_mask = 0
+script = ExtResource("37_mc5s8")
+
+[node name="BreakableWall" type="StaticBody2D" parent="Mechanics" unique_id=560492308 instance=ExtResource("38_amwhs")]
+position = Vector2(3200, 370)
+collision_mask = 0
+script = ExtResource("39_n2bhx")
